@@ -35,7 +35,7 @@
         children.add(child1);
         children.add(child2);
 
-## Mutation (one gene)
+## Mutation (one gene) + dynamic LR
 
         //STRATEGY #1 one gene mutation
 		int bigstep = MyAlg.iteration/30000;
