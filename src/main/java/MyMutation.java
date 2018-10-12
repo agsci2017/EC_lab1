@@ -17,24 +17,17 @@ public class MyMutation implements EvolutionaryOperator<double[]> {
         //STRATEGY #1 one gene mutation
         //score is 9.3 for 10000 pop, 10000 gen
         
+        int bigstep = MyAlg.iteration/30000;
+        double learningRateCoef = Math.pow(0.9, bigstep); //0.9 * 0.9 * ...
+        
+        System.out.println(learningRateCoef);
+        
         for (int i = 0; i < population.size(); i++) {
                 double[] x = population.get(i); //read a vector
-                
+     
                 ////change one gene
-                
-//                for (int j = 0; j < x.length; j++) {
-//                x[j] +=random.nextGaussian()/100.0;
-//            }
-                if(MyAlg.iteration<100000){
-                    x[random.nextInt(x.length)] +=random.nextGaussian()/1.0;
-                    //x[random.nextInt(x.length)] +=random.nextGaussian()/1.0;
-                    //x[random.nextInt(x.length)] +=random.nextGaussian()/1.0;
-                }else{
-                    if(MyAlg.iteration<200000)
-                        x[random.nextInt(x.length)] +=random.nextGaussian()*0.5;
-                    else
-                       x[random.nextInt(x.length)] +=random.nextGaussian()*0.2; 
-                }
+                x[random.nextInt(x.length)] +=random.nextGaussian()*learningRateCoef;
+//            
                 population.set(i, x); //write a vector
         }
         

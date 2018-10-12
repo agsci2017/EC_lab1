@@ -9,17 +9,16 @@ import java.util.Arrays;
 import java.util.Random;
 
 
-
 public class MyAlg {
     
     public static int iteration = 0;
 
     public static void main(String[] args) {
         int dimension = 100; // dimension of problem
-        int populationSize = 50; // size of population
+        int populationSize = 10; // size of population
         int generations = 500000; // number of generations
 
-        Random random = new Random(); // random
+        final Random random = new Random(); // random
 
         CandidateFactory<double[]> factory = new MyFactory(dimension); // generation of solutions
 
@@ -39,9 +38,13 @@ public class MyAlg {
             public void populationUpdate(PopulationData populationData) {
                 iteration+=1;
                 double bestFit = populationData.getBestCandidateFitness();
-                System.out.println("Generation " + populationData.getGenerationNumber() + ": " + bestFit);
-                //System.out.println("\tBest solution = " + Arrays.toString((double[])populationData.getBestCandidate()));
-                System.out.println("\tPop size = " + populationData.getPopulationSize());
+                
+                    System.out.println("Generation " + populationData.getGenerationNumber() + ": " + bestFit);
+                    if((MyAlg.iteration%100)==0){
+                        System.out.println("\tBest solution = " + Arrays.toString((double[])populationData.getBestCandidate()));
+                    }
+                    System.out.println("\tPop size = " + populationData.getPopulationSize());
+                
             }
         });
 
