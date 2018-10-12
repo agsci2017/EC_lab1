@@ -17,14 +17,26 @@ public class MyMutation implements EvolutionaryOperator<double[]> {
         //STRATEGY #1 one gene mutation
         //score is 9.3 for 10000 pop, 10000 gen
         
-        //for (int i = 0; i < population.size(); i++) {
-                //double[] x = population.get(i); //read a vector
+        for (int i = 0; i < population.size(); i++) {
+                double[] x = population.get(i); //read a vector
                 
                 ////change one gene
-                //x[random.nextInt(x.length)] +=(random.nextDouble()-0.5)/10000.0; 
                 
-                //population.set(i, x); //write a vector
-        //}
+//                for (int j = 0; j < x.length; j++) {
+//                x[j] +=random.nextGaussian()/100.0;
+//            }
+                if(MyAlg.iteration<100000){
+                    x[random.nextInt(x.length)] +=random.nextGaussian()/1.0;
+                    //x[random.nextInt(x.length)] +=random.nextGaussian()/1.0;
+                    //x[random.nextInt(x.length)] +=random.nextGaussian()/1.0;
+                }else{
+                    if(MyAlg.iteration<200000)
+                        x[random.nextInt(x.length)] +=random.nextGaussian()*0.5;
+                    else
+                       x[random.nextInt(x.length)] +=random.nextGaussian()*0.2; 
+                }
+                population.set(i, x); //write a vector
+        }
         
         
         
@@ -32,37 +44,43 @@ public class MyMutation implements EvolutionaryOperator<double[]> {
         //foreach x in population
         //score is 9.8 for 10000 pop, 10000 gen
         
-        for (int i = 0; i < population.size(); i++) {
+//        for (int i = 0; i < population.size(); i++) {
+//            
+//            double[] x = population.get(i);
+//            
+//            for (int j = 0; j < x.length; j++) {
+//               x[j]+=random.nextGaussian();//-0.05 .. +0.05 
+//               System.out.println(random.nextGaussian());
+//            }
+////            
+//            population.set(i, x);
+//        }
+//            if (MyAlg.iteration<1000)
+//            for (int j = 0; j < x.length; j++) {
+//               x[j]+=(random.nextDouble()-0.5)/10.0;//-0.05 .. +0.05 
+//            }
+//            
+//            if (MyAlg.iteration<2000 && MyAlg.iteration>=1000)
+//            for (int j = 0; j < x.length; j++) {
+//               x[j]+=(random.nextDouble()-0.5)/100.0;//-0.005 .. +0.005 
+//            }
+//            
+//            if (MyAlg.iteration<4000 && MyAlg.iteration>=2000)
+//            for (int j = 0; j < x.length; j++) {
+//               x[j]+=(random.nextDouble()-0.5)/1000.0;//-0.0005 .. +0.0005 
+//            }
+//            
+//            if (MyAlg.iteration<8000 && MyAlg.iteration>=4000)
+//            for (int j = 0; j < x.length; j++) {
+//               x[j]+=(random.nextDouble()-0.5)/10000.0;//-0.00005 .. +0.00005 
+//            }
+//            
+//            if (MyAlg.iteration<10000 && MyAlg.iteration>=8000)
+//            for (int j = 0; j < x.length; j++) {
+//               x[j]+=(random.nextDouble()-0.5)/100000.0;//-0.000005 .. +0.000005 
+//            }
             
-            double[] x = population.get(i);
-            
-            if (MyAlg.iteration<1000)
-            for (int j = 0; j < x.length; j++) {
-               x[j]+=(random.nextDouble()-0.5)/10.0;//-0.05 .. +0.05 
-            }
-            
-            if (MyAlg.iteration<2000 && MyAlg.iteration>=1000)
-            for (int j = 0; j < x.length; j++) {
-               x[j]+=(random.nextDouble()-0.5)/100.0;//-0.005 .. +0.005 
-            }
-            
-            if (MyAlg.iteration<4000 && MyAlg.iteration>=2000)
-            for (int j = 0; j < x.length; j++) {
-               x[j]+=(random.nextDouble()-0.5)/1000.0;//-0.0005 .. +0.0005 
-            }
-            
-            if (MyAlg.iteration<8000 && MyAlg.iteration>=4000)
-            for (int j = 0; j < x.length; j++) {
-               x[j]+=(random.nextDouble()-0.5)/10000.0;//-0.00005 .. +0.00005 
-            }
-            
-            if (MyAlg.iteration<10000 && MyAlg.iteration>=8000)
-            for (int j = 0; j < x.length; j++) {
-               x[j]+=(random.nextDouble()-0.5)/100000.0;//-0.000005 .. +0.000005 
-            }
-            
-            population.set(i, x);
-        }
+        
 
         //result population
         return population;

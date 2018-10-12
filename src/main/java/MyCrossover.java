@@ -25,7 +25,7 @@ public class MyCrossover extends AbstractCrossover<double[]> {
         
         for (int j = 0; j < len; j++) {
             
-            if(random.nextDouble()>0.5){
+            if(random.nextBoolean()){
                 child1[j] = p1[j];
                 child2[j] = p2[j];
             } else {
@@ -37,6 +37,8 @@ public class MyCrossover extends AbstractCrossover<double[]> {
         
         children.add(child1);
         children.add(child2);
+        //children.add(p1);
+        //children.add(p2);
     
         
         return children;

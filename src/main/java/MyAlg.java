@@ -16,8 +16,8 @@ public class MyAlg {
 
     public static void main(String[] args) {
         int dimension = 100; // dimension of problem
-        int populationSize = 10000; // size of population
-        int generations = 10000; // number of generations
+        int populationSize = 50; // size of population
+        int generations = 500000; // number of generations
 
         Random random = new Random(); // random
 
@@ -40,7 +40,7 @@ public class MyAlg {
                 iteration+=1;
                 double bestFit = populationData.getBestCandidateFitness();
                 System.out.println("Generation " + populationData.getGenerationNumber() + ": " + bestFit);
-                System.out.println("\tBest solution = " + Arrays.toString((double[])populationData.getBestCandidate()));
+                //System.out.println("\tBest solution = " + Arrays.toString((double[])populationData.getBestCandidate()));
                 System.out.println("\tPop size = " + populationData.getPopulationSize());
             }
         });
