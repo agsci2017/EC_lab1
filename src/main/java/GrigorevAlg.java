@@ -9,7 +9,7 @@ import java.util.Arrays;
 import java.util.Random;
 
 
-public class MyAlg {
+public class GrigorevAlg {
     
     public static int iteration = 0;
 
@@ -20,11 +20,11 @@ public class MyAlg {
 
         final Random random = new Random(); // random
 
-        CandidateFactory<double[]> factory = new MyFactory(dimension); // generation of solutions
+        CandidateFactory<double[]> factory = new GrigorevFactory(dimension); // generation of solutions
 
         ArrayList<EvolutionaryOperator<double[]>> operators = new ArrayList<EvolutionaryOperator<double[]>>();
-        operators.add(new MyCrossover()); // Crossover
-        operators.add(new MyMutation()); // Mutation
+        operators.add(new GrigorevCrossover()); // Crossover
+        operators.add(new GrigorevMutation()); // Mutation
         EvolutionPipeline<double[]> pipeline = new EvolutionPipeline<double[]>(operators);
 
         SelectionStrategy<Object> selection = new RouletteWheelSelection(); // Selection operator
@@ -40,7 +40,7 @@ public class MyAlg {
                 double bestFit = populationData.getBestCandidateFitness();
                 
                     System.out.println("Generation " + populationData.getGenerationNumber() + ": " + bestFit);
-                    if((MyAlg.iteration%100)==0){
+                    if((GrigorevAlg.iteration%100)==0){
                         System.out.println("\tBest solution = " + Arrays.toString((double[])populationData.getBestCandidate()));
                     }
                     System.out.println("\tPop size = " + populationData.getPopulationSize());

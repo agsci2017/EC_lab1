@@ -4,8 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-public class MyCrossover extends AbstractCrossover<double[]> {
-    protected MyCrossover() {
+public class GrigorevCrossover extends AbstractCrossover<double[]> {
+    protected GrigorevCrossover() {
         super(1);
     }
 

@@ -7,7 +7,7 @@ import org.uncommons.watchmaker.framework.EvolutionaryOperator;
 import java.util.List;
 import java.util.Random;
 
-public class MyMutation implements EvolutionaryOperator<double[]> {
+public class GrigorevMutation implements EvolutionaryOperator<double[]> {
     public List<double[]> apply(List<double[]> population, Random random) {
         // initial population
         // need to change individuals, but not their number!
@@ -17,10 +17,10 @@ public class MyMutation implements EvolutionaryOperator<double[]> {
         //STRATEGY #1 one gene mutation
         //score is 9.3 for 10000 pop, 10000 gen
         
-        int bigstep = MyAlg.iteration/30000;
+        int bigstep = GrigorevAlg.iteration/30000;
         double learningRateCoef = Math.pow(0.9, bigstep); //0.9 * 0.9 * ...
         
-        System.out.println(learningRateCoef);
+        System.out.println("\nrate="+learningRateCoef);
         
         for (int i = 0; i < population.size(); i++) {
                 double[] x = population.get(i); //read a vector

@@ -2,11 +2,11 @@ import org.uncommons.watchmaker.framework.factories.AbstractCandidateFactory;
 
 import java.util.Random;
 
-public class MyFactory extends AbstractCandidateFactory<double[]> {
+public class GrigorevFactory extends AbstractCandidateFactory<double[]> {
 
     private int dimension;
 
-    public MyFactory(int dimension) {
+    public GrigorevFactory(int dimension) {
         this.dimension = dimension;
     }
 
