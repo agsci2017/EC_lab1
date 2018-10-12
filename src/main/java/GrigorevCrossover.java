@@ -37,9 +37,8 @@ public class GrigorevCrossover extends AbstractCrossover<double[]> {
         
         children.add(child1);
         children.add(child2);
-        //children.add(p1);
-        //children.add(p2);
-    
+//        children.add(p1);
+//        children.add(p2);
         
         return children;
     }
