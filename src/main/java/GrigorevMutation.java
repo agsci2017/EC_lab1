@@ -26,7 +26,15 @@ public class GrigorevMutation implements EvolutionaryOperator<double[]> {
                 double[] x = population.get(i); //read a vector
      
                 ////change one gene
+                
                 x[random.nextInt(x.length)] +=random.nextGaussian()*learningRateCoef;
+                
+//                int idx1 = random.nextInt(x.length);
+//                int idx2 = random.nextInt(x.length);
+//                
+//                double tmp=x[idx1];
+//                x[idx1]=x[idx2];
+//                x[idx2]=tmp;
 //            
                 population.set(i, x); //write a vector
         }

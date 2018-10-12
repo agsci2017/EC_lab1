@@ -1,6 +1,0 @@
-#surefire
-#Tue Oct 02 08:24:22 MSK 2018
-maven.ext.class.path=/home/user/.netbeans/8.1/maven-nblib/netbeans-eventspy.jar
-user.dir=/home/user/Desktop/EC/EC_lab1
-localRepository=/home/user/.m2/repository
-basedir=/home/user/Desktop/EC/EC_lab1
